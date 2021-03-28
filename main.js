@@ -38,16 +38,25 @@ function dispData(){
     let {username,phoneNumber,email,password}=JSON.parse(window.localStorage.getItem('user'));
     var output =document.getElementById('output')
     output.innerHTML=`
-    <h1>Hello ${username},</h1>
-
-    <h4>Phone Number</h4>
-    <p>${phoneNumber}</p>
-
-    <h4>Email</h2>
-    <p>${email}</p>
-
-    <h4>Password</h4>
-    <p>${password}</p>
+    <div>
+      <h1>Hello ${username},</h1>
+      <div class='details'>
+        <div>
+        <h3>Registration Details:</h3>
+        <h4>Phone Number</h4>
+        <p>${phoneNumber}</p>
+        </div>
+        <div>
+        <h4>Email</h4>
+        <p>${email}</p>
+        </div>
+        <div>
+        <h4>Password</h4>
+        <p>${password}</p>
+        </div>
+      </div>
+    </div>
+    
     `
 }
 
@@ -58,10 +67,11 @@ function dispData(){
 //     console.log("remove items");
 // }
 
-// function clearStorage(){ //clears the entire localStorage
-//     localStorage.clear()
-//     console.log("clear records");
-// }
+function logout(){ //clears the entire localStorage
+    window.localStorage.removeItem('userDetails')
+    
+    console.log("clear records");
+}
 
 
 

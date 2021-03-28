@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style-profile.css">
     <title>USER PROFILE</title>
 </head>
 <body onload="dispData()">
-    <div class="container">
+    <div class="profile-container">
         <h1>USER PROFILE</h1>
-    <div id="output">
-        
-    </div>
-    
-        <button id="logout" type="submit">LOG OUT</button>
+        <img src="images1.jpg">
+        <div class="profile-details">
+        <form action="login.html">
+            <div id="output">  
+            </div>
+                <button id="logout" onclick="logout()" type="submit">LOG OUT</button>
+            </div>
+        </form>
     </div>
     
 </body>
