@@ -42,18 +42,14 @@ function getLoginDetail(event){
     //console.log(storedSetting)
     var storedSetting=JSON.parse(localStorage.getItem('user'));
     var detailSettings=JSON.parse(localStorage.getItem('userDetails'));
-    if((storedSetting.username !== detailSettings.getUsername)){
-        alert('Username incorrect')
+    if ((storedSetting.username === detailSettings.getUsername) && (storedSetting.password === detailSettings.getPassword)){  // checks if registered details matches login details
+        alert('User logged in successfully.')
+        document.getElementById('loginForm').action='profile.html'
     }
-    else if((storedSetting.password !== detailSettings.getPassword)){
-        alert('Password incorrect')
-        
-    }else {
-      document.getElementById('loginForm').onsubmit=function(){
-        alert('Password and Username is correct')
-        window.location.href="profile.html"};
-    
-}
+    else{
+        alert('Username or password is incorrect. Try again')
+        document.getElementById('loginForm').action="login.html"
+    }
 }
 
 //Display the details from the register page
@@ -83,8 +79,13 @@ function dispData(){
 }
 
 //clears the users details from local storage and redirects backl to the login page
-function logout(){ t
-    getLoginDetail()
+function logout(){ 
+    var detailSettings=JSON.parse(localStorage.getItem('userDetails'));
     window.localStorage.removeItem('userDetails')
-    console.log("clear records");
+    alert("Successfully logged out");
+}
+function logoutUser(){
+    document.getElementById('logout').addEventListener('click',
+    logout()
+    )
 }

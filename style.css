@@ -89,7 +89,8 @@ input{
 label{
     font-weight: bold;
 }
-button{
+button,
+input[type='submit']{
     width: 40%;
     height: 45px;
     font-size:18px;
