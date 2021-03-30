@@ -1,3 +1,14 @@
+// classList use
+function hover(){
+    var buttonHover=document.getElementById('button-hover');
+    buttonHover.classList.add('hover')
+}
+function normal(){
+    var buttonHover=document.getElementById('button-hover');
+    buttonHover.classList.remove('hover')
+}
+
+// Store Registration Details
 function store(event){
     var username=document.getElementById('username').value;
     var phoneNumber=document.getElementById('phoneNumber').value;
@@ -12,7 +23,14 @@ function store(event){
     }
     window.localStorage.setItem('user',JSON.stringify(login))
 }
-function getLoginDetail(){
+function myFunction(){
+    document.getElementById('#button-details').addEventListener('click',
+    window.location.href='profile.html'
+    )
+}
+
+// Store details from login page
+function getLoginDetail(event){
     var getUsername=document.getElementById('getUsername').value;
     var getPassword=document.getElementById('getPassword').value;
 
@@ -24,84 +42,49 @@ function getLoginDetail(){
     //console.log(storedSetting)
     var storedSetting=JSON.parse(localStorage.getItem('user'));
     var detailSettings=JSON.parse(localStorage.getItem('userDetails'));
-    if((storedSetting.username !== detailSettings.getUsername) && (storedSetting.password !== detailSettings.getPassword)){
-        alert('Username or Email incorrect')
+    if((storedSetting.username !== detailSettings.getUsername)){
+        alert('Username incorrect')
+    }
+    else if((storedSetting.password !== detailSettings.getPassword)){
+        alert('Password incorrect')
         
-       
-    }
-    else if (storedSetting.username == detailSettings.getUsername && storedSetting.password == detailSettings.getPassword){
-        window.location.href ="profile.html"
-    }
+    }else {
+      document.getElementById('loginForm').onsubmit=function(){
+        alert('Password and Username is correct')
+        window.location.href="profile.html"};
+    
+}
 }
 
+//Display the details from the register page
 function dispData(){
     let {username,phoneNumber,email,password}=JSON.parse(window.localStorage.getItem('user'));
     var output =document.getElementById('output')
     output.innerHTML=`
     <div>
-      <h1>Hello ${username},</h1>
+      <h1 class="font-bold text-xl mb-8">HELLO ${username},</h1>
       <div class='details'>
         <div>
-        <h3>Registration Details:</h3>
-        <h4>Phone Number</h4>
+        <h3 class="font-bold text-xl mb-4">Registration Details:</h3>
+        <h4 class="font-bold text-l mb-4">Phone Number</h4>
         <p>${phoneNumber}</p>
         </div>
         <div>
-        <h4>Email</h4>
+        <h4 class="font-bold text-xl my-2">Email</h4>
         <p>${email}</p>
         </div>
         <div>
-        <h4>Password</h4>
+        <h4 class="font-bold text-xl my-2">Password</h4>
         <p>${password}</p>
         </div>
       </div>
     </div>
-    
     `
 }
 
-
-// function removeItem(){ //deletes item from localStorage
-//     var key = document.getElementById('removeKey').value; //gets key from user
-//     localStorage.removeItem(key) //passes key to the removeItem method
-//     console.log("remove items");
-// }
-
-function logout(){ //clears the entire localStorage
+//clears the users details from local storage and redirects backl to the login page
+function logout(){ t
+    getLoginDetail()
     window.localStorage.removeItem('userDetails')
-    
     console.log("clear records");
 }
-
-
-
-// function RandomUser() {
-//   fetch("https://randomuser.me/api/?results=3")
-//   .then(response=>{
-//     console.log(response);
-//     if(!response.ok){
-//       throw Error("Error");
-//     }
-//       return response.json();
-//     })
-//     .then(data =>{
-//       console.log(data.results);
-//       const html = data.results.map(user =>{
-//         return`
-        
-//         <div class="userType">
-//           <div class="userType1">
-//           <img src=${user.picture.medium} alt="" />
-//           </div>
-//           <div class="userType2">
-//           <p> ${user.cell}</p>
-//           </div>
-//         </div>`;
-//       }).join("");
-//       console.log(html);
-//       document.querySelector(".user").insertAdjacentHTML("afterbegin", html);
-//     })
-//     .catch(error =>{
-//       console.log(error);
-//     });
-// }

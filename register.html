@@ -7,7 +7,7 @@
     <title>REGISTER PAGE</title>
 </head>
 <body>
-    <h2>CREATE YOUR ACCOUNT</h2>
+    <h2 class="data-container">CREATE YOUR ACCOUNT</h2>
     
     <div class="container">
     
@@ -27,7 +27,9 @@
 
             <label for="password">Password</label>
             <input type="password" id="password" placeholder="Enter password" required>
-            <button onclick=store(event) type="submit">REGISTER</button>
+            <div onmouseover="hover();" onmouseout="normal()">
+            <button id="button-hover" onclick=store(event) type="submit">REGISTER</button>
+        </div>
         </form>
     </div>
 </div>

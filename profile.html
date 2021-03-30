@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style-profile.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>USER PROFILE</title>
 </head>
-<body onload="dispData()">
-    <div class="profile-container">
-        <h1>USER PROFILE</h1>
-        <img src="images1.jpg">
-        <div class="profile-details">
+<body class="bg-gray-200 font-sans w-1/2 h-full" onload="dispData()">
+    <div class=" m-10 p-10 text-gray-700 inline-block w-full">
+        <h1 class="font-bold text-2xl ">USER PROFILE</h1>
+        <img class="rounded-full border-4 border-green-400 float-left mt-8 mr-10 mb-10"
+         src="images1.jpg">
+        <div class=" ml-5">
         <form action="login.html">
             <div id="output">  
             </div>
-                <button id="logout" onclick="logout()" type="submit">LOG OUT</button>
+                <button class=" bg-green-600 rounded-lg w-20 h-12 text-md ml-5 mt-8 text-white border-green-300 border-green-300" id="logout" onclick="logout()" type="submit">LOG OUT</button>
             </div>
         </form>
     </div>

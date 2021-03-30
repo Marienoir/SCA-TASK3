@@ -7,16 +7,16 @@
     <title>LOGIN PAGE</title>
 </head>
 <body>
-    <h1>LOGIN </h1>
+    <h1 class="data-container">LOGIN </h1>
     <div class="container">
     <div id="formDiv flex-center flex-column">
-        <form id="loginForm" action="profile.html">
+        <form id="loginForm" action="profile.html" >
             <label for="getUsername">Username</label>
             <input type="text" id="getUsername" placeholder="Enter Username" required>
 
             <label for="getPassword">Password</label>
             <input type="password" id="getPassword" placeholder="Enter password" required>
-            <button id="button-details" onclick=getLoginDetail()  type="submit">LOGIN</button>
+            <button id="button-details" onclick="getLoginDetail(event)" type="submit">LOGIN</button>
         </form>
     </div>
 </div>
